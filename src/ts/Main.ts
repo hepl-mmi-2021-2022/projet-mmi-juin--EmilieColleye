@@ -3,6 +3,7 @@
 import {iDrawable} from "./iDrawable";
 import {Rectangle} from "./Rectangle";
 import {Ball} from "./Circle";
+import {Brick} from "./Brick";
 
 const canvas: HTMLCanvasElement = document.getElementById('my-canvas') as HTMLCanvasElement;
 const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -24,16 +25,8 @@ let nbLigne = 5;
 let nbColonne = 5;
 let brickWidth = 100;
 let brickHeight = 15;
-let PADDING = 5;
+let padding = 5;
 
-
-//créer un rectangle
-function rect(x: number, y: number, width: number, height: number) {
-    ctx.beginPath();
-    ctx.rect(x,y,width,height);
-    ctx.closePath();
-    ctx.fill();
-}
 
 function initBricks() {
     bricks = new Array(nbLigne);
@@ -45,15 +38,13 @@ function initBricks() {
     }
 }
 
-
 function drawBricks() {
     for (let i=0; i < nbLigne; i++) {
-        ctx.fillStyle = 'blue';
+        //ctx.fillStyle = 'blue';
         for (let j=0; j < nbColonne; j++) {
             if (bricks[i][j] == 1) {
-                rect(canvas.width/3 + (j * (brickWidth + PADDING)) + PADDING,
-                    (i * (brickHeight + PADDING)) + PADDING,
-                    brickWidth, brickHeight);
+                new Brick( ctx, 'blue',{x:canvas.width/3 + (j * (brickWidth + padding)) + padding, y:(i * (brickHeight + padding)) + padding},
+                    {width: brickWidth, height: brickHeight}).draw();
             }
         }
     }
