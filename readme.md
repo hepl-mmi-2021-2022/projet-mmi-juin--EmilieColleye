@@ -18,12 +18,17 @@ Le joueur possède une raquette qu'il peut déplacer latéralement afin de faire
 
 ## Ce qui est à faire 
 
+- [ ] Réaliser le CSS + HTML
 - [x] Faire les briques
 - [x] Deplacer la balle
 - [x] Faire rebondir la balle
+- [ ] Faire rebondir la balle sur la barre
+- [x] Détecter les collisions (balle-barre)
+- [ ] Détecter les collisions (balle-briques)
 - [ ] Modifier la vitesse de la balle
-- [ ] Pouvoir bouger la raquette à la souris
-- [ ] Pouvoir bouger la raquette au clavier
+- [ ] Pouvoir bouger la barre à la souris
+- [ ] Pouvoir bouger la barre au clavier
 - [ ] Compteur de point
+- [x] Arrêt de la partie quand la balle touche le sol
 - [ ] Pouvoir relancer une partie
 
