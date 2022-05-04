@@ -22,7 +22,7 @@ Le joueur possède une raquette qu'il peut déplacer latéralement afin de faire
 - [x] Faire les briques
 - [x] Deplacer la balle
 - [x] Faire rebondir la balle
-- [ ] Faire rebondir la balle sur la barre
+- [x] Faire rebondir la balle sur la barre
 - [x] Détecter les collisions (balle-barre)
 - [ ] Détecter les collisions (balle-briques)
 - [ ] Modifier la vitesse de la balle
