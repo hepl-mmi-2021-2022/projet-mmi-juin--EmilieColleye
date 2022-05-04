@@ -1,54 +1,74 @@
-
-
 import {iDrawable} from "./iDrawable";
 import {Rectangle} from "./Rectangle";
-import {Ball} from "./Circle";
+import {Ball} from "./Ball";
 import {Brick} from "./Brick";
+import {settings} from "./Settings/settings";
 
 const canvas: HTMLCanvasElement = document.getElementById('my-canvas') as HTMLCanvasElement;
 const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
 const shapes:iDrawable[] = [];
+let ball =  new Ball(ctx, 'white', {x:200, y:200}, 5, true);
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 const background = new Rectangle(ctx,'black', {x:0,y:0}, {width:canvas.width, height:canvas.height});
-background.draw();
 
-//const ball =  new Ball(ctx, 'white', {x:100, y:100}, 10);
-//ball.draw();
-//const brick = new Rectangle(ctx, 'green', {x:200, y: 50}, {width: 100, height:30});
-//brick.draw();
+
 
 let bricks: any[];
-let nbLigne = 5;
-let nbColonne = 5;
-let brickWidth = 100;
-let brickHeight = 15;
-let padding = 5;
-
-
 function initBricks() {
-    bricks = new Array(nbLigne);
-    for (let i=0; i < nbLigne; i++) {
-        bricks[i] = new Array(nbColonne);
-        for (let j=0; j < nbColonne; j++) {
+    bricks = new Array(settings.nbLigne);
+    for (let i=0; i < settings.nbLigne; i++) {
+        bricks[i] = new Array(settings.nbColonne);
+        for (let j=0; j < settings.nbColonne; j++) {
             bricks[i][j] = 1;
         }
     }
 }
-
 function drawBricks() {
-    for (let i=0; i < nbLigne; i++) {
-        //ctx.fillStyle = 'blue';
-        for (let j=0; j < nbColonne; j++) {
+    for (let i = 0; i < settings.nbLigne; i++) {
+        for (let j = 0; j < settings.nbColonne; j++) {
             if (bricks[i][j] == 1) {
-                new Brick( ctx, 'blue',{x:canvas.width/3 + (j * (brickWidth + padding)) + padding, y:(i * (brickHeight + padding)) + padding},
-                    {width: brickWidth, height: brickHeight}).draw();
+                new Brick(ctx, 'blue', {
+                        x: canvas.width / 3 + (j * (settings.brickWidth + settings.padding)) + settings.padding,
+                        y: (i * (settings.brickHeight + settings.padding)) + settings.padding
+                    },
+                    {width: settings.brickWidth, height: settings.brickHeight}).draw();
             }
         }
     }
 }
 
+function clear() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    background.draw();
+}
+
+background.draw();
 initBricks();
 drawBricks();
+ball.init();
+
+var x = 150;
+var y = 150;
+var dx = 2;
+var dy = 4;
+
+function init() {
+    return setInterval(draw, 1000); // Exécuter draw() toutes les 10 ms
+}
+function draw() {
+    clear();
+    background.draw();
+    initBricks();
+    drawBricks();
+
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+    x += dx; // On déplace la balle
+    y += dy;
+}
+
+init();
