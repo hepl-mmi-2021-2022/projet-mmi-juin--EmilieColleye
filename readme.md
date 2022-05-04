@@ -30,5 +30,6 @@ Le joueur possède une raquette qu'il peut déplacer latéralement afin de faire
 - [ ] Pouvoir bouger la barre au clavier
 - [ ] Compteur de point
 - [x] Arrêt de la partie quand la balle touche le sol
+- [ ] Ajout d'un système de vie (3 vies)
 - [ ] Pouvoir relancer une partie
 
