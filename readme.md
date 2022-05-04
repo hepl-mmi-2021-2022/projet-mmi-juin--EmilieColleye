@@ -18,11 +18,12 @@ Le joueur possède une raquette qu'il peut déplacer latéralement afin de faire
 
 ## Ce qui est à faire 
 
-- [ ] Faire les briques
-- [ ] Deplacer la balle
-- [ ] Compteur de point
+- [x] Faire les briques
+- [x] Deplacer la balle
+- [x] Faire rebondir la balle
+- [ ] Modifier la vitesse de la balle
 - [ ] Pouvoir bouger la raquette à la souris
 - [ ] Pouvoir bouger la raquette au clavier
-- [ ] Modifier la vitesse de la balle
+- [ ] Compteur de point
 - [ ] Pouvoir relancer une partie
 

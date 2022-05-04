@@ -5,12 +5,10 @@ import {settings} from "./Settings/settings";
 
 export class Ball extends Shape implements iDrawable {
     private readonly radius: number;
-    private counterClockWise: boolean;
 
-    constructor(ctx: CanvasRenderingContext2D, color: string, origin: { x: number; y: number }, radius: number, counterClockWise: boolean) {
+    constructor(ctx: CanvasRenderingContext2D, color: string, origin: { x: number; y: number }, radius: number) {
         super(ctx, color, origin);
         this.radius = radius;
-        this.counterClockWise = counterClockWise;
     }
 
     init() {
@@ -20,15 +18,12 @@ export class Ball extends Shape implements iDrawable {
     override draw() {
         this.ctx.beginPath();
         this.ctx.fillStyle = this.color;
-        this.ctx.arc(this.origin.x, this.origin.y, this.radius, 0, Math.PI * 2, true);
-        this.ctx.closePath();
+        this.ctx.arc(this.origin.x, this.origin.y, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
+        this.ctx.closePath();
     }
 
-    update() {
-
-        this.origin.y -= settings.ball.speedY;
-        this.origin.x += settings.ball.speedX;
+    update(){
         this.draw();
     }
 }
