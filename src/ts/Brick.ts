@@ -13,14 +13,19 @@ export class Brick implements iDrawable{
         this.ctx = ctx;
         this.origin = origin;
         this.dimensions = dimensions;
-        this.color = settings.brick.colors[random(0,settings.brick.colors.length, false)];
+        this.color = color;
     }
 
     draw(){
+        this.ctx.save();
         this.ctx.beginPath();
         this.ctx.fillStyle=this.color;
         this.ctx.rect(this.origin.x, this.origin.y,this.dimensions.width,this.dimensions.height);
         this.ctx.closePath();
         this.ctx.fill();
+        this.ctx.restore();
+    }
+    update(){
+        this.draw();
     }
 }
