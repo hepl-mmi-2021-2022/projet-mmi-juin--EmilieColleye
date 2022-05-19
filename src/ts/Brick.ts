@@ -1,15 +1,14 @@
-import {Shape} from "./Shape";
 import {iDrawable} from "./iDrawable";
-import {settings} from "./Settings/settings";
-import {random} from "./heplers/math";
+
 
 export class Brick implements iDrawable{
+    private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private origin:{x: number, y:number}
     private dimensions:{width: number, height:number}
     private readonly color: string;
 
-    constructor(ctx : CanvasRenderingContext2D, color: string, origin: { x: number; y: number }, dimensions: { width: number; height: number }) {
+    constructor(canvas: HTMLCanvasElement, ctx : CanvasRenderingContext2D, color: string, origin: { x: number; y: number }, dimensions: { width: number; height: number }) {
         this.ctx = ctx;
         this.origin = origin;
         this.dimensions = dimensions;

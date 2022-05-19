@@ -1,4 +1,5 @@
 export const settings = {
+    life:3,
     nbLigne: 5,
     nbColonne: 4,
     brick:{
@@ -12,12 +13,13 @@ export const settings = {
         speedY: 5,
         origin: {x: 0, y:0},
         radius: 10,
-        color: 'white',
+        color: 'black',
     },
     barre:{
         height: 30,
         width: 200,
         positionX: 500,
-        color: 'white',
+        color: 'black',
+        speedX: 0.1,
     }
 }
